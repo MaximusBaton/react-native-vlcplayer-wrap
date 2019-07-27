@@ -23,7 +23,7 @@ export default class VLCPlayerView extends Component {
     this.state = {
       paused: true,
       showLoading: true,
-      showAdLoading: true,
+      // showAdLoading: true,
       loadingSuccess: false,
       isFull: false,
       currentTime: 0,
@@ -44,7 +44,7 @@ export default class VLCPlayerView extends Component {
     source: null,
     seek: 0,
     playInBackground: false,
-    isAd: false,
+    // isAd: false,
     autoplay: false,
     lookTime: 0,
     totalTime: 0,
@@ -247,10 +247,10 @@ export default class VLCPlayerView extends Component {
    * @private
    */
   _renderLoading = ()=>{
-    let { showAd, isEndAd, isAd, pauseByAutoplay} = this.props;
+    let { /* showAd, isEndAd, isAd, */ pauseByAutoplay} = this.props;
     let { showLoading, showAdLoading } = this.state;
     if(!pauseByAutoplay){
-      if(isAd){
+      /* if(isAd){
         if(showAdLoading){
           return(
             <View style={styles.loading}>
@@ -258,15 +258,15 @@ export default class VLCPlayerView extends Component {
             </View>
           )
         }
-      }else{
-        if(showLoading && ((showAd && isEndAd) || !showAd)){
+      }else{ */
+        if(showLoading/*  && ((showAd && isEndAd) || !showAd) */){
           return(
             <View style={styles.loading}>
                 <ActivityIndicator size={'large'} animating={true} color="#fff" />
             </View>
           )
         }
-      }
+      // }
     }
 
     return null;
@@ -290,7 +290,7 @@ export default class VLCPlayerView extends Component {
     let {
       onEnd,
       style,
-      isAd,
+      // isAd,
       url,
       volume,
       muted,
@@ -385,7 +385,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  ad: {
+  /* ad: {
     backgroundColor: 'rgba(255,255,255,1)',
     height: 30,
     marginRight: 10,
@@ -394,7 +394,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
-  },
+  }, */
 
   topView: {
     top: 0,//Platform.OS === 'ios' ? statusBarHeight : 0,

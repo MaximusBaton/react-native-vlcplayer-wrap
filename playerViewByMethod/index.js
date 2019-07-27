@@ -69,11 +69,11 @@ export default class VlCPlayerViewByMethod extends Component {
     this.initialCurrentTime = 0;
     this.initSuccess = false;
     this.firstPlaying = false;
-    this.initAdLoadStart = false;
+    // this.initAdLoadStart = false;
     this.isReloadingError = false;
     this.needReloadCurrent = false;
     this.autoplaySize = 0;
-    this.autoplayAdSize = 0;
+    // this.autoplayAdSize = 0;
     this.autoReloadLiveSize = 0;
   }
 
@@ -82,7 +82,7 @@ export default class VlCPlayerViewByMethod extends Component {
   };
 
   state = {
-    isEndAd: false,
+    // isEndAd: false,
     isFull: false,
     showControls: false,
     showLoading: true,
@@ -94,8 +94,8 @@ export default class VlCPlayerViewByMethod extends Component {
     chapterPosition: new Animated.Value(-250),
     volume: 150,
     muted: false,
-    adMuted: false,
-    adVolume: 150,
+    // adMuted: false,
+    // adVolume: 150,
     canShowVideo: true,
     pauseByAutoplay: false,
   };
@@ -116,13 +116,13 @@ export default class VlCPlayerViewByMethod extends Component {
     },
     chapterText: 'Chapter',
     autoplay: false,
-    showAd: false,
+    // showAd: false,
     showTop: false,
-    adUrl: '',
+    // adUrl: '',
     url: '',
     isLive: false,
     autoReloadLive: false,
-    reloadWithAd: false,
+    // reloadWithAd: false,
     showBack: false,
     showTitle: false,
     autoPlayNext: false,
@@ -146,8 +146,8 @@ export default class VlCPlayerViewByMethod extends Component {
       left:0,
       zIndex: 9999,
     },
-    initAdType: 2,
-    initAdOptions: Platform.OS === 'ios' ? ["--input-repeat=1000","--repeat"] : [],
+    // initAdType: 2,
+    // initAdOptions: Platform.OS === 'ios' ? ["--input-repeat=1000","--repeat"] : [],
     initType: 1,
     initOptions: [],
     //fullVideoAspectRatio: deviceHeight + ':' + deviceWidth,
@@ -160,9 +160,9 @@ export default class VlCPlayerViewByMethod extends Component {
      * vlc Play type related
      */
     // Ad initialization type
-    initAdType: PropTypes.oneOf([1,2]),
+    // initAdType: PropTypes.oneOf([1,2]),
     // Ad initialization parameter
-    initAdOptions: PropTypes.array,
+    // initAdOptions: PropTypes.array,
 
     // Video initialization type
     initType: PropTypes.oneOf([1,2]),
@@ -181,15 +181,15 @@ export default class VlCPlayerViewByMethod extends Component {
      * Advertising related
      */
     // Whether to show ads
-    showAd:  PropTypes.bool,
+    // showAd:  PropTypes.bool,
     //Advertising url
-    adUrl: PropTypes.oneOfType([PropTypes.string,PropTypes.number]).isRequired,
+    // adUrl: PropTypes.oneOfType([PropTypes.string,PropTypes.number]).isRequired,
     // Reloading includes ads
-    reloadWithAd: PropTypes.bool,
+    // reloadWithAd: PropTypes.bool,
     // End of ad heading
-    onAdEnd: PropTypes.func,
+    // onAdEnd: PropTypes.func,
     //Whether the ad is playing
-    onIsAdPlaying: PropTypes.func,
+    // onIsAdPlaying: PropTypes.func,
 
 
     /**
@@ -270,7 +270,7 @@ export default class VlCPlayerViewByMethod extends Component {
         return {
           currentUrl: url,
           storeUrl: url,
-          isEndAd: false,
+          // isEndAd: false,
           isEnding: false,
           isError: false,
           showControls: false,
@@ -285,7 +285,7 @@ export default class VlCPlayerViewByMethod extends Component {
           storeUrl: url,
           currentTime: 0,
           totalTime: 0,
-          isEndAd: false,
+          // isEndAd: false,
           isEnding: false,
           isError: false,
           showControls: false,
@@ -309,17 +309,17 @@ export default class VlCPlayerViewByMethod extends Component {
   }
 
   componentDidMount() {
-    let { style, isAd, initWithFull, useNetInfo,  } = this.props;
-    let { autoplay, showAd } = this.props;
+    let { style, /* isAd, */ initWithFull, useNetInfo,  } = this.props;
+    let { autoplay/* , showAd */ } = this.props;
     //Do not show ads when an ad is displayed and autoplay is false
-    if(showAd && !autoplay){
+    /* if(showAd && !autoplay){
       if(this.autoplayAdSize < 1){
         this.autoplayAdSize = 1;
         this.setState({
           isEndAd: true
         });
       }
-    }
+    } */
     if(useNetInfo){
       NetInfo.getConnectionInfo().then((connectionInfo) => {
         NetInfo.isConnected.fetch().then(isConnected => {
@@ -438,12 +438,12 @@ export default class VlCPlayerViewByMethod extends Component {
 
   pauseAll = ()=>{
     this.vlcPlayerViewRef && this.vlcPlayerViewRef.pause();
-    this.vlcPlayerViewAdRef && this.vlcPlayerViewAdRef.pause();
+    // this.vlcPlayerViewAdRef && this.vlcPlayerViewAdRef.pause();
   }
 
   playAll = ()=>{
     this.vlcPlayerViewRef && this.vlcPlayerViewRef.play();
-    this.vlcPlayerViewAdRef && this.vlcPlayerViewAdRef.play();
+    // this.vlcPlayerViewAdRef && this.vlcPlayerViewAdRef.play();
   }
 
   /*****************************
@@ -470,7 +470,7 @@ export default class VlCPlayerViewByMethod extends Component {
 
   changeVideoAspectRatio = (ratio)=>{
     this.vlcPlayerViewRef && this.vlcPlayerViewRef.changeVideoAspectRatio(ratio);
-    this.vlcPlayerViewAdRef && this.vlcPlayerViewAdRef.changeVideoAspectRatio(ratio);
+    // this.vlcPlayerViewAdRef && this.vlcPlayerViewAdRef.changeVideoAspectRatio(ratio);
   }
 
 
@@ -509,37 +509,37 @@ export default class VlCPlayerViewByMethod extends Component {
    *                           *
    *****************************/
 
-  pauseAd = ()=> {
+  /* pauseAd = ()=> {
     this.vlcPlayerViewAdRef && this.vlcPlayerViewAdRef.pause();
   }
 
   playAd = ()=>{
     this.vlcPlayerViewAdRef && this.vlcPlayerViewAdRef.play();
-  }
+  } */
 
   snapshot = (path)=>{
     this.vlcPlayerViewRef && this.vlcPlayerViewRef.snapshot(path);
-    this.vlcPlayerViewAdRef && this.vlcPlayerViewAdRef.snapshot(path);
+    // this.vlcPlayerViewAdRef && this.vlcPlayerViewAdRef.snapshot(path);
   }
 
-  resumeAd = ()=> {
+  /* resumeAd = ()=> {
     this.initAdSuccess = false;
     this.vlcPlayerViewAdRef && this.vlcPlayerViewAdRef.reload(true);
-  }
+  } */
 
-  seekAd = (value) => {
+  /* seekAd = (value) => {
     this.vlcPlayerViewAdRef && this.vlcPlayerViewAdRef.seek(value);
-  }
+  } */
 
-  pauseAdToggle = ()=> {
+  /* pauseAdToggle = ()=> {
     if(this.state.adPaused){
       this.vlcPlayerViewAdRef && this.vlcPlayerViewAdRef.play();
     }else{
       this.vlcPlayerViewAdRef && this.vlcPlayerViewAdRef.pause();
     }
-  }
+  } */
 
-  muteAdToggle = ()=> {
+  /* muteAdToggle = ()=> {
     if (this.state.adMuted) {
       this.vlcPlayerViewAdRef && this.vlcPlayerViewAdRef.muted(false);
       this.setState({
@@ -551,7 +551,7 @@ export default class VlCPlayerViewByMethod extends Component {
         adMuted: true
       });
     }
-  }
+  } */
 
 
   /**********************************
@@ -601,8 +601,8 @@ export default class VlCPlayerViewByMethod extends Component {
   _onIsPlaying = (event)=> {
 
     let { isPlaying } = event;
-    let { onIsPlaying, showAd } = this.props;
-    let { isEndAd, paused } = this.state;
+    let { onIsPlaying/* , showAd */ } = this.props;
+    let { /* isEndAd, */ paused } = this.state;
     /*if(__DEV__){
      console.log('_onIsPlaying:'+this.props.url,this.state.isError+":"+isPlaying)
      }*/
@@ -616,9 +616,9 @@ export default class VlCPlayerViewByMethod extends Component {
       if(!this.firstPlaying){
         this.firstPlaying = true;
         //There is an ad and the ad is not over, stop playing
-        if(showAd && !isEndAd){
+        /* if(showAd && !isEndAd){
           this.pause();
-        }
+        } */
       }
       /* this.setState({
        isError: false
@@ -636,9 +636,9 @@ export default class VlCPlayerViewByMethod extends Component {
    * handle the first time video play
    */
   handleInitSuccess = ()=> {
-    let { isError, isEndAd, isFull } = this.state;
+    let { isError, /* isEndAd, */ isFull } = this.state;
     this.initSuccess = true;
-    let { lookTime, totalTime, showAd, autoplay, fullVideoAspectRatio, videoAspectRatio } = this.props;
+    let { lookTime, totalTime, /* showAd, */ autoplay, fullVideoAspectRatio, videoAspectRatio } = this.props;
 
     if(this.props.useVideoAspectRatioByMethod){
       if(isFull){
@@ -671,9 +671,9 @@ export default class VlCPlayerViewByMethod extends Component {
       currentTime: lookTime || 0
     })
     //There is an ad and the ad is not over, stop playing
-    if(showAd && !isEndAd){
+    /* if(showAd && !isEndAd){
       this.pause();
-    }
+    } */
     //Set autoplay to false to stop playing
     if(!autoplay && this.autoplaySize < 1){
       this.autoplaySize++;
@@ -870,8 +870,8 @@ export default class VlCPlayerViewByMethod extends Component {
      let { url } = this.props;
      console.log(url+' --> _onStopped',e);
      }*/
-    let { showAd, isLive, autoReloadLive } = this.props;
-    let { isEndAd, isEndding, isError, totalTime, pauseByAutoplay, realPaused } = this.state;
+    let { /* showAd, */ isLive, autoReloadLive } = this.props;
+    let { /* isEndAd, */ isEndding, isError, totalTime, pauseByAutoplay, realPaused } = this.state;
     if(isLive){
       if(autoReloadLive && !pauseByAutoplay){
         if(this.autoReloadLiveSize < 20){
@@ -881,13 +881,13 @@ export default class VlCPlayerViewByMethod extends Component {
           this.autoReloadLiveSize = 0;
           this.setState({
             isError: true,
-            isEndAd: true,
+            // isEndAd: true,
           })
         }
       }else{
         this.setState({
           isError: true,
-          isEndAd: true,
+          // isEndAd: true,
         })
       }
     }else{
@@ -913,16 +913,16 @@ export default class VlCPlayerViewByMethod extends Component {
    *                           *
    *****************************/
 
-  _onAdBuffering = e => {
-    /*if(__DEV__){
+  /* _onAdBuffering = e => {
+    / *if(__DEV__){
      console.log('_onAdBuffering',e)
-     }*/
-  }
+     }* /
+  } */
 
-  _onAdIsPlaying = (e)=> {
-    /*if(__DEV__){
+  /* _onAdIsPlaying = (e)=> {
+    / *if(__DEV__){
      console.log('_onAdIsPlaying',e)
-     }*/
+     }* /
     let { autoplay, onIsAdPlaying } = this.props;
     let { adPaused } = this.state;
     onIsAdPlaying && onIsAdPlaying(e);
@@ -958,9 +958,9 @@ export default class VlCPlayerViewByMethod extends Component {
       this.play();
       this.vlcPlayerViewRef.volume(199);
     });
-    /*this.vlcPlayerViewAdRef &&  this.vlcPlayerViewAdRef.position(0);
+    / *this.vlcPlayerViewAdRef &&  this.vlcPlayerViewAdRef.position(0);
      this.vlcPlayerViewAdRef && this.vlcPlayerViewAdRef.seek(0);
-     this.vlcPlayerViewAdRef && this.vlcPlayerViewAdRef.play();*/
+     this.vlcPlayerViewAdRef && this.vlcPlayerViewAdRef.play();* /
   }
 
   _onAdLoadStart = e=> {
@@ -981,9 +981,9 @@ export default class VlCPlayerViewByMethod extends Component {
         this.vlcPlayerViewRef.volume(199);
       });
     }
-    /*this.vlcPlayerViewAdRef && this.vlcPlayerViewAdRef.seek(0);
-     this.vlcPlayerViewAdRef && this.vlcPlayerViewAdRef.play();*/
-  }
+    / *this.vlcPlayerViewAdRef && this.vlcPlayerViewAdRef.seek(0);
+     this.vlcPlayerViewAdRef && this.vlcPlayerViewAdRef.play();* /
+  } */
 
 
   /**********************************************
@@ -1011,28 +1011,28 @@ export default class VlCPlayerViewByMethod extends Component {
     this.firstPlaying = false;
     this.needReloadCurrent = isCurrent;
     this.hadEnd = false;
-    let { storeUrl, adUrl, currentTime } = this.state;
-    let { reloadWithAd, isLive } = this.props;
-    let isEndAd = true;
-    if(reloadWithAd){
+    let { storeUrl, /* adUrl, */ currentTime } = this.state;
+    let { /* reloadWithAd, */ isLive } = this.props;
+    // let isEndAd = true;
+    /* if(reloadWithAd){
       isEndAd = false;
       this.initAdSuccess = false;
-    }
+    } */
 
     this.setState({
       currentTime: isCurrent ? currentTime : 0 ,
       pauseByAutoplay: false,
-      isEndAd:isEndAd,
+      // isEndAd:isEndAd,
       isEnding: false,
       showControls: false,
     },()=>{
-      if(reloadWithAd){
+      /* if(reloadWithAd){
         this.resumeAd();
         this.resume(true);
-      }else{
+      }else{ */
         this.resume(true);
         setTimeout(()=>this.checkIsPlaying(0),500)
-      }
+      // }
     });
   }
 
@@ -1366,7 +1366,7 @@ export default class VlCPlayerViewByMethod extends Component {
     );
   }
 
-  getAdView = ()=> {
+  /* getAdView = ()=> {
     let { onAdEnd, showAd, adUrl, showBack } = this.props;
     let { showAdView, showChapter, isFull, adMuted, adPaused, isEndAd } = this.state;
     return(
@@ -1412,7 +1412,7 @@ export default class VlCPlayerViewByMethod extends Component {
         </TouchableOpacity>
       </View>
     )
-  }
+  } */
 
   getLoadingView = ()=>{
     let { showBack } = this.props;
@@ -1471,9 +1471,9 @@ export default class VlCPlayerViewByMethod extends Component {
       showTop,
       onEnd,
       style,
-      isAd,
+      // isAd,
       type,
-      showAd,
+      // showAd,
       chapterElements,
       chapterText
     } = this.props;
@@ -1545,7 +1545,7 @@ export default class VlCPlayerViewByMethod extends Component {
         {this.getChapterView()}
         <View style={[styles.bottomView,{}]}>
           <ControlBtn
-            showSlider={!isAd}
+            showSlider={true/* !isAd */}
             muted={muted}
             isFull={isFull}
             onMutePress={this.muteToggle}
@@ -1643,10 +1643,10 @@ export default class VlCPlayerViewByMethod extends Component {
   }
 
   _renderLoading = ()=>{
-    let { showAd } = this.props;
-    let { pauseByAutoplay, isEndAd, totalTime, showLoading } = this.state;
+    // let { showAd } = this.props;
+    let { pauseByAutoplay, /* isEndAd, */ totalTime, showLoading } = this.state;
     let realShowLoading = false;
-    if(!showAd || (showAd && isEndAd)){
+    // if(!showAd || (showAd && isEndAd)){
       //console.log('isEndAd',showLoading);
       if(!this.initSuccess){
         realShowLoading = true;
@@ -1664,13 +1664,13 @@ export default class VlCPlayerViewByMethod extends Component {
           }
         }
       }
-    }else{
+    /* }else{
       //console.log('isNotEndAd',showLoading);
       //console.log('-------!this.initAdSuccess---------')
       if(!this.initAdSuccess){
         realShowLoading = true;
       }
-    }
+    } */
     if(this.isProgressChange){
       realShowLoading = false;
     }
@@ -1692,10 +1692,10 @@ export default class VlCPlayerViewByMethod extends Component {
       showTitle,
       initWithFull,
       showTop,
-      showAd,
-      adUrl,
+      // showAd,
+      // adUrl,
     } = this.props;
-    let { isFull, showControls, isEnding, isVipPlayEnd, isError, showChapter, isEndAd, netInfo, currentUrl, pauseByAutoplay } = this.state;
+    let { isFull, showControls, isEnding, isVipPlayEnd, isError, showChapter, /* isEndAd, */ netInfo, currentUrl, pauseByAutoplay } = this.state;
     if(isError && !pauseByAutoplay){
       return this.getErrorView();
     }else if(isEnding){
@@ -1705,7 +1705,7 @@ export default class VlCPlayerViewByMethod extends Component {
     }else if(netInfo && netInfo.isConnected === false){
       return this.getNoNetInfoView();
     }
-    if(showAd){
+    /* if(showAd){
       if(adUrl && currentUrl){
         if(!isEndAd){
           return this.getAdView();
@@ -1717,7 +1717,7 @@ export default class VlCPlayerViewByMethod extends Component {
       }else{
         return this.getLoadingView();
       }
-    }else{
+    }else{ */
       if(!currentUrl){
         return this.getLoadingView();
       }else{
@@ -1725,7 +1725,7 @@ export default class VlCPlayerViewByMethod extends Component {
           return this.getControlView();
         }
       }
-    }
+    // }
     return this.getCommonView();
   }
 
@@ -1733,8 +1733,8 @@ export default class VlCPlayerViewByMethod extends Component {
   render() {
     let {
       url,
-      adUrl,
-      showAd,
+      // adUrl,
+      // showAd,
       showBack,
       style,
       fullStyle,
@@ -1742,12 +1742,12 @@ export default class VlCPlayerViewByMethod extends Component {
       videoAspectRatio,
       fullVideoAspectRatio,
       considerStatusBar,
-      initAdType,
-      initAdOptions,
+      // initAdType,
+      // initAdOptions,
       initType,
       initOptions,
     } = this.props;
-    let { isEndAd, isFull, currentUrl, isEnding } = this.state;
+    let { /* isEndAd, */ isFull, currentUrl, isEnding } = this.state;
     /**
      * set videoAspectRatio
      * @type {string}
@@ -1769,8 +1769,8 @@ export default class VlCPlayerViewByMethod extends Component {
      * @type {boolean}
      */
     let showVideo = false;
-    let realShowAd = false;
-    if(showAd){
+    // let realShowAd = false;
+    /* if(showAd){
       if(currentUrl && adUrl){
         realShowAd = true;
         showVideo = true;
@@ -1778,11 +1778,11 @@ export default class VlCPlayerViewByMethod extends Component {
           realShowAd = false;
         }
       }
-    }else{
+    }else{ */
       if(currentUrl){
         showVideo = true;
       }
-    }
+    // }
     if(currentUrl && currentUrl.replace){
       currentUrl = currentUrl.replace(/[“”]/g,"");
     }
@@ -1821,7 +1821,7 @@ export default class VlCPlayerViewByMethod extends Component {
         style={[styles.container, considerStyle, isFull ? fullStyle : style]}>
         <View style={{flex:1}}>
           <TouchableOpacity activeOpacity={1} style={{flex:1}} onPressIn={this._onBodyPressIn} onPressOut={this._onBodyPress}>
-            {realShowAd && (
+            {/* realShowAd && (
               <VLCPlayerView
                 ref={ref => (this.vlcPlayerViewAdRef = ref)}
                 {...this.props}
@@ -1845,17 +1845,17 @@ export default class VlCPlayerViewByMethod extends Component {
                   }
                 }
               />
-            )}
+            ) */}
             {showVideo && (
               <VLCPlayerView
                 ref={ref => (this.vlcPlayerViewRef = ref)}
                 {...this.props}
-                showAd={showAd}
-                isAd={false}
+                // showAd={showAd}
+                // isAd={false}
                 autoplay={autoplay}
                 url={currentUrl}
-                isEndAd={isEndAd}
-                style={showAd && !isEndAd ? { position: 'absolute', zIndex: -1 } : {}}
+                // isEndAd={isEndAd}
+                style={/* showAd && !isEndAd ? { position: 'absolute', zIndex: -1 } :  */{}}
                 videoAspectRatio={currentVideoAspectRatio}
                 onProgressChange={this._onProgressChange}
                 onSnapshot={this.props.onSnapshot}
@@ -1949,7 +1949,7 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: 'rgba(0,0,0,0)',
   },
-  ad: {
+  /* ad: {
     backgroundColor: 'rgba(255,255,255,1)',
     height: 30,
     marginRight: 10,
@@ -1958,7 +1958,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
-  },
+  }, */
   chapterView: {
     borderColor: '#000',
     top: 37,
@@ -2007,7 +2007,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: 'rgba(0,0,0,0.6)',
   },
-  adBtn:{
+  /* adBtn:{
     backgroundColor:'rgba(0,0,0,0.3)',
     borderRadius:15,
     width: 30,
@@ -2015,5 +2015,5 @@ const styles = StyleSheet.create({
     position:'absolute',
     alignItems: 'center',
     justifyContent: 'center'
-  },
+  }, */
 });

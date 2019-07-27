@@ -412,9 +412,9 @@ Rtsp://184.72.239.149/vod/mp4://BigBuckBunny_175k.mov
             * vlc play type related
             */
                // Ad initialization type
-               initAdType: PropTypes.oneOf([1,2]),
+               //initAdType: PropTypes.oneOf([1,2]),
                // Advertising initialization parameters
-               initAdOptions: PropTypes.array,
+               //initAdOptions: PropTypes.array,
 
                // Video initialization type
                initType: PropTypes.oneOf([1,2]),
@@ -433,15 +433,15 @@ Rtsp://184.72.239.149/vod/mp4://BigBuckBunny_175k.mov
             * Advertising related
             */
                // Whether to display ads
-               showAd: PropTypes.bool,
-               //Ad url
-               adUrl: PropTypes.oneOfType([PropTypes.string,PropTypes.number]).isRequired,
-               //Reload including ads
-               reloadWithAd: PropTypes.bool,
-               //End of the ad title
-               onAdEnd: PropTypes.func,
-               //Is the ad playing?
-               onIsAdPlaying: PropTypes.func,
+               //showAd: PropTypes.bool,
+               // Ad url
+               //adUrl: PropTypes.oneOfType([PropTypes.string,PropTypes.number]).isRequired,
+               // Reload including ads
+               //reloadWithAd: PropTypes.bool,
+               // End of the ad title
+               //onAdEnd: PropTypes.func,
+               // Is the ad playing?
+               //onIsAdPlaying: PropTypes.func,
 
 
            /**

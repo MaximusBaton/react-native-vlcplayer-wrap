@@ -225,7 +225,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
-  ad: {
+  /* ad: {
     backgroundColor: 'rgba(255,255,255,1)',
     height: 30,
     paddingLeft: 10,
@@ -233,5 +233,5 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
-  },
+  }, */
 });

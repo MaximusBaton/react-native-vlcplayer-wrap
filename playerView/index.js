@@ -30,7 +30,7 @@ export default class CommonVideo extends Component {
   };
 
   state = {
-    isEndAd: false,
+    // isEndAd: false,
     isFull: false,
     currentUrl: '',
     storeUrl: '',
@@ -38,8 +38,8 @@ export default class CommonVideo extends Component {
 
   static defaultProps = {
     height: 250,
-    showAd: false,
-    adUrl: '',
+    // showAd: false,
+    // adUrl: '',
     url: '',
     showBack: false,
     showTitle: false,
@@ -54,7 +54,7 @@ export default class CommonVideo extends Component {
     /**
      * End of ad heading
      */
-    onAdEnd: PropTypes.func,
+    // onAdEnd: PropTypes.func,
     /**
      * Turn on full screen
      */
@@ -89,13 +89,13 @@ export default class CommonVideo extends Component {
         return {
           currentUrl: url,
           storeUrl: url,
-          isEndAd: false,
+          // isEndAd: false,
         };
       }else{
         return {
           currentUrl: "",
           storeUrl: url,
-          isEndAd: false,
+          // isEndAd: false,
         };
       }
     }
@@ -114,7 +114,7 @@ export default class CommonVideo extends Component {
 
   componentDidMount(){
     StatusBar.setBarStyle("light-content");
-    let { style, isAd } = this.props;
+    let { style/* , isAd */ } = this.props;
 
     if(style && style.height && !isNaN(style.height)){
       this.initialHeight = style.height;
@@ -164,8 +164,8 @@ export default class CommonVideo extends Component {
   }
 
   render() {
-    let { url, adUrl, showAd, onAdEnd, onEnd, style, height, title, onLeftPress, showBack, showTitle,closeFullScreen, videoAspectRatio, fullVideoAspectRatio } = this.props;
-    let { isEndAd, isFull, currentUrl } = this.state;
+    let { url, /* adUrl, showAd, onAdEnd, */ onEnd, style, height, title, onLeftPress, showBack, showTitle,closeFullScreen, videoAspectRatio, fullVideoAspectRatio } = this.props;
+    let { /* isEndAd, */ isFull, currentUrl } = this.state;
     let currentVideoAspectRatio = '';
     if(isFull){
       currentVideoAspectRatio = fullVideoAspectRatio;
@@ -176,18 +176,18 @@ export default class CommonVideo extends Component {
       let { width, height} = this.state;
       currentVideoAspectRatio = this.state.currentVideoAspectRatio;
     }
-    let realShowAd = false;
+    // let realShowAd = false;
     let type = '';
-    let adType = '';
+    // let adType = '';
     let showVideo = false;
     let showTop = false;
-    if (showAd && adUrl && !isEndAd) {
+    /* if (showAd && adUrl && !isEndAd) {
       realShowAd = true;
-    }
+    } */
     if (currentUrl) {
-      if(!showAd || (showAd && isEndAd)){
+      // if(!showAd || (showAd && isEndAd)){
         showVideo = true;
-      }
+      // }
       if(currentUrl.split){
         let types = currentUrl.split('.');
         if (types && types.length > 0) {
@@ -195,13 +195,13 @@ export default class CommonVideo extends Component {
         }
       }
     }
-    if (adUrl && adUrl.split) {
+    /* if (adUrl && adUrl.split) {
       let types = adUrl.split('.');
       if (types && types.length > 0) {
         adType = types[types.length - 1];
       }
-    }
-    if(!showVideo && !realShowAd){
+    } */
+    if(!showVideo/*  && !realShowAd */){
       showTop = true;
     }
     return (
@@ -231,7 +231,7 @@ export default class CommonVideo extends Component {
           </View>
         </View>
         }
-        {realShowAd && (
+        {/*realShowAd && (
           <VLCPlayerView
             {...this.props}
             videoAspectRatio={currentVideoAspectRatio}
@@ -249,7 +249,7 @@ export default class CommonVideo extends Component {
             startFullScreen={this._toFullScreen}
             closeFullScreen={this._closeFullScreen}
           />
-        )}
+        )*/}
 
         {showVideo && (
           <VLCPlayerView
@@ -262,10 +262,10 @@ export default class CommonVideo extends Component {
             isFull={isFull}
             showBack={showBack}
             showTitle={showTitle}
-            hadAd={true}
-            isEndAd={isEndAd}
+            // hadAd={true}
+            // isEndAd={isEndAd}
             //initPaused={this.state.paused}
-            style={showAd && !isEndAd ? { position: 'absolute', zIndex: -1 } : {}}
+            style={/* showAd && !isEndAd ? { position: 'absolute', zIndex: -1 } : */ {}}
             source={{ uri: currentUrl, type: type }}
             startFullScreen={this._toFullScreen}
             closeFullScreen={this._closeFullScreen}

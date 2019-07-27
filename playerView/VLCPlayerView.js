@@ -49,7 +49,7 @@ export default class VLCPlayerView extends Component {
     source: null,
     seek: 0,
     playInBackground: false,
-    isAd: false,
+    // isAd: false,
     autoplay: true,
   };
 
@@ -81,7 +81,7 @@ export default class VLCPlayerView extends Component {
     let {
       onEnd,
       style,
-      isAd,
+      // isAd,
       type,
       isFull,
       uri,
@@ -93,7 +93,7 @@ export default class VLCPlayerView extends Component {
       videoAspectRatio,
     } = this.props;
     let { isLoading, loadingSuccess, showControls, isError } = this.state;
-    let showAd = false;
+    // let showAd = false;
     let realShowLoding = false;
     let source = {};
     if (uri) {
@@ -104,16 +104,16 @@ export default class VLCPlayerView extends Component {
       }
     }
     if (Platform.OS === 'ios') {
-      if ((loadingSuccess && isAd) || (isAd && type === 'swf')) {
+      /* if ((loadingSuccess && isAd) || (isAd && type === 'swf')) {
         showAd = true;
-      }
+      } */
       if (isLoading && type !== 'swf') {
         realShowLoding = true;
       }
     } else {
-      if (loadingSuccess && isAd) {
+      /* if (loadingSuccess && isAd) {
         showAd = true;
-      }
+      } */
       if (isLoading) {
         realShowLoding = true;
       }
@@ -200,7 +200,7 @@ export default class VLCPlayerView extends Component {
                 </Text>
               )}
             </View>
-            {showAd && (
+            {/* showAd && (
               <View style={styles.ad}>
                 <TimeLimt
                   onEnd={() => {
@@ -209,15 +209,15 @@ export default class VLCPlayerView extends Component {
                   //maxTime={Math.ceil(this.state.totalTime)}
                 />
               </View>
-            )}
+            ) */}
           </View>
         </View>
         <View style={[styles.bottomView]}>
           {showControls && (
             <ControlBtn
               //style={isFull?{width:deviceHeight}:{}}
-              showSlider={!isAd}
-              showAd={showAd}
+              showSlider={true/* !isAd */}
+              // showAd={showAd}
               onEnd={onEnd}
               title={title}
               onLeftPress={onLeftPress}
