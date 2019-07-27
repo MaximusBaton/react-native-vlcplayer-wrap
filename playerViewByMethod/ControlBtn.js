@@ -9,7 +9,7 @@ import {
   StatusBar,
 } from 'react-native';
 // import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Slider from 'react-native-slider';
+// import Slider from 'react-native-slider';
 import PropTypes from 'prop-types';
 import TimeLimt from './TimeLimit';
 
@@ -41,6 +41,8 @@ export default class ControlBtn extends Component {
   };
 
   render() {
+    return null;
+      
     let {
       paused,
       muted,
@@ -86,7 +88,7 @@ export default class ControlBtn extends Component {
                   <Icon name={'reload'} size={24} color="#fff"/>
                 </TouchableOpacity>
               </View> */}
-              {showSlider &&
+              {/* showSlider &&
                 totalTime > 0 && (
                   <View
                     style={{
@@ -137,7 +139,7 @@ export default class ControlBtn extends Component {
                       </Text>
                     </View>
                   </View>
-                )}
+                ) */}
               {/* <TouchableOpacity
                 activeOpacity={0.8}
                 onPress={() => {

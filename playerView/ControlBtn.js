@@ -9,7 +9,7 @@ import {
   StatusBar,
 } from 'react-native';
 // import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Slider from 'react-native-slider';
+// import Slider from 'react-native-slider';
 import PropTypes from 'prop-types';
 import TimeLimt from './TimeLimit';
 
@@ -41,6 +41,8 @@ export default class ControlBtn extends Component {
   };
 
   render() {
+    return null;
+    
     let {
       paused,
       isFull,
@@ -66,7 +68,7 @@ export default class ControlBtn extends Component {
                 style={{ width: 50, alignItems: 'center', justifyContent: 'center' }}>
                 <Icon name={paused ? 'play' : 'pause'} size={30} color="#fff" />
               </TouchableOpacity> */}
-              {showSlider && totalTime > 0 &&(
+              {/* showSlider && totalTime > 0 &&(
                 <View
                   style={{
                     flex: 1,
@@ -102,7 +104,7 @@ export default class ControlBtn extends Component {
                     </Text>
                   </View>
                 </View>
-              )}
+              ) */}
               {/* <TouchableOpacity
                 activeOpacity={1}
                 onPress={() => {

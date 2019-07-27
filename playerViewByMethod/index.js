@@ -18,7 +18,6 @@ import {
 import VLCPlayerView from './VLCPlayerView';
 import PropTypes from 'prop-types';
 // import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Slider from 'react-native-slider';
 import ControlBtn from './ControlBtn';
 import TimeLimt from './TimeLimit';
 import { getStatusBarHeight } from './SizeController';
@@ -1466,6 +1465,8 @@ export default class VlCPlayerViewByMethod extends Component {
   }
 
   getControlView = ()=> {
+    return null;
+      
     let {
       title,
       onLeftPress,
