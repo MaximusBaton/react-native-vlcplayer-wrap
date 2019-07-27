@@ -23,7 +23,7 @@
   "peerDependencies": {
     "react-native": ">=0.59.9",
     "react": ">=16.8.3",
-    "prop-types": ">=15.7.2",
+    "prop-types": ">=15.7.2"
   },
   "license": "MIT"
 }
