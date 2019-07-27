@@ -1,0 +1,24 @@
+{
+  "name": "react-native-vlcplayer-wrap",
+  "version": "1.0.5",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vlc",
+    "player",
+    "android",
+    "ios",
+    "react-native",
+    "mp4"
+  ],
+  "author": "yazmani",
+  "email": "yas.azmani@gmail.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yazmani/react-native-vlcplayer-wrap.git"
+  },
+  "license": "MIT"
+}
