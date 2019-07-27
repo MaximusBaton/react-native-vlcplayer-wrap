@@ -18,7 +18,14 @@
   "email": "yas.azmani@gmail.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yazmani/react-native-vlcplayer-wrap.git"
+    "url": "git+https://github.com/MaximusBaton/react-native-vlcplayer-wrap.git"
+  },
+  "peerDependencies": {
+    "react-native": ">=0.59.9",
+    "react": ">=16.8.3",
+    "prop-types": ">=15.7.2",
+  },
+  "dependencies": {
   },
   "license": "MIT"
 }
