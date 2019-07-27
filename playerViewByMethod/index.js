@@ -17,7 +17,7 @@ import {
 
 import VLCPlayerView from './VLCPlayerView';
 import PropTypes from 'prop-types';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+// import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Slider from 'react-native-slider';
 import ControlBtn from './ControlBtn';
 import TimeLimt from './TimeLimit';
@@ -345,7 +345,7 @@ export default class VlCPlayerViewByMethod extends Component {
 
   componentWillUnmount() {
     try{
-      let { isFull, Orientation, useNetInfo } = this.props;
+      let { isFull/* , Orientation */, useNetInfo } = this.props;
       this.setState({
         canShowVideo: false
       });
@@ -355,7 +355,7 @@ export default class VlCPlayerViewByMethod extends Component {
       if(this.checkShowControlInterval){
         clearInterval(this.checkShowControlInterval);
       }
-      Orientation && Orientation.lockToPortrait();
+      // Orientation && Orientation.lockToPortrait();
       StatusBar.setHidden(false);
       NetInfo.removeEventListener(
         'connectionChange',
@@ -1065,7 +1065,7 @@ export default class VlCPlayerViewByMethod extends Component {
    * @private
    */
   _onCloseFullScreen = () => {
-    let { onCloseFullScreen, BackHandle, Orientation, initWithFull, onLeftPress, videoAspectRatio } = this.props;
+    let { onCloseFullScreen, BackHandle, /* Orientation, */ initWithFull, onLeftPress, videoAspectRatio } = this.props;
     if(initWithFull){
       onLeftPress && onLeftPress();
     }else{
@@ -1082,7 +1082,7 @@ export default class VlCPlayerViewByMethod extends Component {
           }
         },250);
       }
-      Orientation && Orientation.lockToPortrait();
+      // Orientation && Orientation.lockToPortrait();
       BackHandle && BackHandle.removeBackFunction(_fullKey);
       this.setState({
         isFull: false,
@@ -1097,12 +1097,12 @@ export default class VlCPlayerViewByMethod extends Component {
    * @private
    */
   _toFullScreen = () => {
-    let { onStartFullScreen, BackHandle, Orientation, fullVideoAspectRatio } = this.props;
+    let { onStartFullScreen, BackHandle, /* Orientation, */ fullVideoAspectRatio } = this.props;
     //StatusBar.setTranslucent(true);
     onStartFullScreen && onStartFullScreen();
     StatusBar.setHidden(true);
     BackHandle && BackHandle.addBackFunction(_fullKey, this._onCloseFullScreen);
-    Orientation && Orientation.lockToLandscape && Orientation.lockToLandscape();
+    // Orientation && Orientation.lockToLandscape && Orientation.lockToLandscape();
     this.setState({
       isFull: true,
       showControls: false,
@@ -1252,14 +1252,14 @@ export default class VlCPlayerViewByMethod extends Component {
     let { isFull } = this.state;
     return (
       <View style={[styles.loading, { backgroundColor: 'rgb(0,0,0)' }]}>
-        {(showBack) && <View style={{ height: 37, width: 40, position:'absolute', top:0, left:0,zIndex: 999 }}>
+        {/* (showBack) && <View style={{ height: 37, width: 40, position:'absolute', top:0, left:0,zIndex: 999 }}>
           <View style={styles.backBtn}>
             <TouchableOpacity onPress={this._onLeftPress} style={styles.btn} activeOpacity={0.8}>
               <Icon name={'chevron-left'} size={30} color="#fff"/>
             </TouchableOpacity>
           </View>
         </View>
-        }
+         */}
         <View style={styles.centerContainer}>
           <Text style={styles.centerContainerText} numberOfLines={1}>{vipEndText}</Text>
           <TouchableOpacity activeOpacity={0.8} onPress={() => {onVipPress && onVipPress()}} style={[styles.centerContainerBtn,{ backgroundColor: 'rgb(230,33,41)'}]}>
@@ -1279,9 +1279,11 @@ export default class VlCPlayerViewByMethod extends Component {
     } = this.props;
     let { height, width, isFull} = this.state;
     let { endingText, reloadBtnText, nextBtnText } = endingViewText;
+    
+    return null;
     return(
       <View style={[styles.commonView,{ backgroundColor:'rgba(0,0,0,0.5)'}]}>
-        <View style={styles.centerContainer}>
+        {/* <View style={styles.centerContainer}>
           <Text style={styles.centerContainerText}>{endingText}</Text>
           <View style={styles.centerRowContainer}>
             <TouchableOpacity style={styles.centerContainerBtn} onPress={this.reload} activeOpacity={1}>
@@ -1305,7 +1307,7 @@ export default class VlCPlayerViewByMethod extends Component {
               <Icon name={'chevron-left'} size={30} color="#fff" />
             </TouchableOpacity>
           )}
-        </View>
+        </View> */}
       </View>
     )
   }
@@ -1316,7 +1318,7 @@ export default class VlCPlayerViewByMethod extends Component {
     let { netInfo, height, width, isFull, isError } = this.state;
     return (
       <View style={[styles.loading, { zIndex:999, backgroundColor: '#000' }]}>
-        <View style={[styles.backBtn,{position:'absolute',left:0,top:0,zIndex:999}]}>
+        {/* <View style={[styles.backBtn,{position:'absolute',left:0,top:0,zIndex:999}]}>
           {(showBack) && (
             <TouchableOpacity
               onPress={this._onLeftPress}
@@ -1325,11 +1327,11 @@ export default class VlCPlayerViewByMethod extends Component {
               <Icon name={'chevron-left'} size={30} color="#fff" />
             </TouchableOpacity>
           )}
-        </View>
+        </View> */}
         <View style={styles.centerContainer}>
           <Text style={styles.centerContainerText}>{errorText}</Text>
           <TouchableOpacity style={styles.centerContainerBtn} onPress={this.reloadError} activeOpacity={0.8}>
-            <Icon name={'reload'} size={20} color="#fff" />
+            {/* <Icon name={'reload'} size={20} color="#fff" /> */}
             <Text style={styles.centerContainerBtnText}>{reloadBtnText}</Text>
           </TouchableOpacity>
         </View>
@@ -1345,7 +1347,7 @@ export default class VlCPlayerViewByMethod extends Component {
     return (
       <View
         style={[styles.loading,{zIndex:999, backgroundColor:'#000',}]}>
-        <View style={[styles.backBtn,{position:'absolute',left:0,top:0}]}>
+        {/* <View style={[styles.backBtn,{position:'absolute',left:0,top:0}]}>
           {(showBack) && (
             <TouchableOpacity
               onPress={this._onLeftPress}
@@ -1354,11 +1356,11 @@ export default class VlCPlayerViewByMethod extends Component {
               <Icon name={'chevron-left'} size={30} color="#fff" />
             </TouchableOpacity>
           )}
-        </View>
+        </View> */}
         <View style={styles.centerContainer}>
           <Text style={styles.centerContainerText}>The network is not connected, please check the network settings</Text>
           <TouchableOpacity style={styles.centerContainerBtn} onPress={this._fetchNetWork} activeOpacity={1}>
-            <Icon name={'reload'} size={20} color="#fff" />
+            {/* <Icon name={'reload'} size={20} color="#fff" /> */}
             <Text style={styles.centerContainerBtnText}>Refresh retry</Text>
           </TouchableOpacity>
         </View>
@@ -1418,7 +1420,7 @@ export default class VlCPlayerViewByMethod extends Component {
     let { showBack } = this.props;
     let { isFull } = this.props;
     return (<View style={[styles.loading,{zIndex:666}]}>
-      <View style={[styles.backBtn,{position:'absolute',left:0,top:0,zIndex:999}]}>
+      {/* <View style={[styles.backBtn,{position:'absolute',left:0,top:0,zIndex:999}]}>
         {(showBack) && (
           <TouchableOpacity
             onPress={this._onLeftPress}
@@ -1427,7 +1429,7 @@ export default class VlCPlayerViewByMethod extends Component {
             <Icon name={'chevron-left'} size={30} color="#fff" />
           </TouchableOpacity>
         )}
-      </View>
+      </View> */}
       <ActivityIndicator size={'large'} animating={true} color="#fff" />
     </View>);
   }
@@ -1441,11 +1443,13 @@ export default class VlCPlayerViewByMethod extends Component {
         showPaused = true;
       }
     }
+    
+    return null;
     return (<View style={styles.commonView}>
-      <TouchableOpacity activeOpacity={1} style={{flex:1,justifyContent:'center',alignItems:'center'}} onPressIn={this._onBodyPressIn} onPressOut={this._onBodyPress}>
+      {/* <TouchableOpacity activeOpacity={1} style={{flex:1,justifyContent:'center',alignItems:'center'}} onPressIn={this._onBodyPressIn} onPressOut={this._onBodyPress}>
         {showPaused  &&<TouchableOpacity activeOpacity={0.8} style={{paddingTop:2,paddingLeft:2,backgroundColor:'rgba(0,0,0,0.5)',justifyContent:'center',alignItems:'center',width:50,height:50,borderRadius:25}} onPress={this.play}>
           <Icon name={'play'} size={30} color="#fff"/>
-        </TouchableOpacity>
+          </TouchableOpacity>
         }
       </TouchableOpacity>
       <View style={[styles.backBtn,{position:'absolute',left:0,top:0, zIndex:999}]}>
@@ -1457,7 +1461,7 @@ export default class VlCPlayerViewByMethod extends Component {
             <Icon name={'chevron-left'} size={30} color="#fff" />
           </TouchableOpacity>
         )}
-      </View>
+      </View>*/}
     </View>);
   }
 
@@ -1491,9 +1495,11 @@ export default class VlCPlayerViewByMethod extends Component {
     }
     let color1 = 'rgba(255,255,255,0.6)';
     let color2 = 'rgba(0,0,0,0.5)';
+    
+    return null;
     return(
       <View style={{position:'absolute',height:'100%',width:'100%',top:0,left:0,zIndex:999,backgroundColor:'rgba(0,0,0,0)'}}>
-        <TouchableOpacity activeOpacity={1} style={{flex:1}} onPressIn={this._onBodyPressIn} onPressOut={this._onBodyPress}>
+        {/* <TouchableOpacity activeOpacity={1} style={{flex:1}} onPressIn={this._onBodyPressIn} onPressOut={this._onBodyPress}>
           {
             this.changingSlider &&
             <View style={{flex:1, justifyContent:'center',alignItems:'center'}}>
@@ -1506,7 +1512,7 @@ export default class VlCPlayerViewByMethod extends Component {
               </View>
             </View>
           }
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         {showTop &&
         <View style={[styles.topView]}>
           <View style={{flex:1, backgroundColor:color1}}>
@@ -1517,7 +1523,7 @@ export default class VlCPlayerViewByMethod extends Component {
                     onPress={this._onLeftPress}
                     style={styles.btn}
                     activeOpacity={0.8}>
-                    <Icon name={'chevron-left'} size={30} color="#fff"/>
+                    {/* <Icon name={'chevron-left'} size={30} color="#fff"/> */}
                   </TouchableOpacity>
                 )}
                 <View style={{ justifyContent: 'center', flex: 1, marginLeft:10, marginRight: 10 }}>

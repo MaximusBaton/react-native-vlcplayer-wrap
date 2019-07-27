@@ -8,7 +8,7 @@ import {
   ActivityIndicator,
   StatusBar,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+// import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Slider from 'react-native-slider';
 import PropTypes from 'prop-types';
 import TimeLimt from './TimeLimit';
@@ -58,14 +58,14 @@ export default class ControlBtn extends Component {
         <View style={styles.controlContainer}>
           <TouchableOpacity style={styles.controlContent} activeOpacity={1}>
             <View style={styles.controlContent2}>
-              <TouchableOpacity
+              {/* <TouchableOpacity
                 activeOpacity={1}
                 onPress={() => {
                   onPausedPress && onPausedPress(!paused);
                 }}
                 style={{ width: 50, alignItems: 'center', justifyContent: 'center' }}>
                 <Icon name={paused ? 'play' : 'pause'} size={30} color="#fff" />
-              </TouchableOpacity>
+              </TouchableOpacity> */}
               {showSlider && totalTime > 0 &&(
                 <View
                   style={{
@@ -103,14 +103,14 @@ export default class ControlBtn extends Component {
                   </View>
                 </View>
               )}
-              <TouchableOpacity
+              {/* <TouchableOpacity
                 activeOpacity={1}
                 onPress={() => {
                   onFullPress && onFullPress(!isFull);
                 }}
                 style={{ width: 50, alignItems: 'center', justifyContent: 'center' }}>
                 <Icon name={isFull ? 'fullscreen-exit' : 'fullscreen'} size={30} color="#fff" />
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </View>
           </TouchableOpacity>
         </View>

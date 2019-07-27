@@ -15,7 +15,7 @@ import VLCPlayer from '../VLCPlayer';
 import PropTypes from 'prop-types';
 import TimeLimt from './TimeLimit';
 import ControlBtn from './ControlBtn';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+// import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { getStatusBarHeight } from './SizeController';
 const statusBarHeight = getStatusBarHeight();
 let deviceHeight = Dimensions.get('window').height;
@@ -163,7 +163,7 @@ export default class VLCPlayerView extends Component {
         {isError && (
           <View style={[styles.loading,{backgroundColor:'#000'}]}>
             <Text style={{ color: 'red' }}>Video playback error, please reload</Text>
-            <TouchableOpacity
+            {/* <TouchableOpacity
               activeOpacity={1}
               onPress={this._reload}
               style={{
@@ -173,10 +173,10 @@ export default class VLCPlayerView extends Component {
                 marginTop: 10,
               }}>
               <Icon name={'reload'} size={45} color="#fff" />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
         )}
-        <View style={styles.topView}>
+        {/* <View style={styles.topView}>
           <View style={styles.backBtn}>
             {showBack && (
               <TouchableOpacity
@@ -200,7 +200,7 @@ export default class VLCPlayerView extends Component {
                 </Text>
               )}
             </View>
-            {/* showAd && (
+            { / * showAd && (
               <View style={styles.ad}>
                 <TimeLimt
                   onEnd={() => {
@@ -209,9 +209,9 @@ export default class VLCPlayerView extends Component {
                   //maxTime={Math.ceil(this.state.totalTime)}
                 />
               </View>
-            ) */}
+            ) * / }
           </View>
-        </View>
+        </View> */}
         <View style={[styles.bottomView]}>
           {showControls && (
             <ControlBtn

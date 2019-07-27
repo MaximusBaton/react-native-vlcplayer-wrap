@@ -8,7 +8,7 @@ import {
   ActivityIndicator,
   StatusBar,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+// import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Slider from 'react-native-slider';
 import PropTypes from 'prop-types';
 import TimeLimt from './TimeLimit';
@@ -60,32 +60,32 @@ export default class ControlBtn extends Component {
         <View style={styles.controlContainer}>
           <TouchableOpacity style={styles.controlContent} activeOpacity={1}>
             <View style={styles.controlContent2}>
-              <View style={{flexDirection:'row'}}>
-              <TouchableOpacity
-                activeOpacity={0.8}
-                onPress={() => {
-                  onPausedPress && onPausedPress(!paused);
-                }}
-                style={{ width: 35, alignItems: 'center', justifyContent: 'center' }}>
-                <Icon name={paused ? 'play' : 'pause'} size={26} color="#fff" />
-              </TouchableOpacity>
-              <TouchableOpacity
-                activeOpacity={0.8}
-                onPress={() => {
-                  onMutePress && onMutePress(!paused);
-                }}
-                style={{ width: 35, alignItems: 'center', justifyContent: 'center' }}>
-                <Icon name={muted ? 'volume-off' : 'volume-high'} size={24} color="#fff" />
-              </TouchableOpacity>
+                {/* <View style={{flexDirection:'row'}}>
+                <TouchableOpacity
+                    activeOpacity={0.8}
+                    onPress={() => {
+                      onPausedPress && onPausedPress(!paused);
+                    }}
+                    style={{ width: 35, alignItems: 'center', justifyContent: 'center' }}>
+                    <Icon name={paused ? 'play' : 'pause'} size={26} color="#fff" />
+                </TouchableOpacity>
+                <TouchableOpacity
+                    activeOpacity={0.8}
+                    onPress={() => {
+                      onMutePress && onMutePress(!paused);
+                    }}
+                    style={{ width: 35, alignItems: 'center', justifyContent: 'center' }}>
+                    <Icon name={muted ? 'volume-off' : 'volume-high'} size={24} color="#fff" />
+                </TouchableOpacity>
                 <TouchableOpacity
                   activeOpacity={0.8}
                   onPress={() => {
-                  onReload && onReload();
-                }}
+                    onReload && onReload();
+                  }}
                   style={{ width: 35, alignItems: 'center', justifyContent: 'center' }}>
                   <Icon name={'reload'} size={24} color="#fff"/>
                 </TouchableOpacity>
-              </View>
+              </View> */}
               {showSlider &&
                 totalTime > 0 && (
                   <View
@@ -138,14 +138,14 @@ export default class ControlBtn extends Component {
                     </View>
                   </View>
                 )}
-              <TouchableOpacity
+              {/* <TouchableOpacity
                 activeOpacity={0.8}
                 onPress={() => {
                   onFullPress && onFullPress(!isFull);
                 }}
                 style={{ width: 35, alignItems: 'center', justifyContent: 'center' }}>
                 <Icon name={isFull ? 'fullscreen-exit' : 'fullscreen'} size={26} color="#fff" />
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </View>
           </TouchableOpacity>
         </View>

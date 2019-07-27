@@ -12,7 +12,7 @@ import {
 
 import VLCPlayerView from './VLCPlayerView';
 import PropTypes from 'prop-types';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+// import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {getStatusBarHeight}  from './SizeController';
 const statusBarHeight = getStatusBarHeight();
 const _fullKey = 'commonVideo_android_fullKey';
@@ -132,23 +132,23 @@ export default class CommonVideo extends Component {
   }
 
   _closeFullScreen = () => {
-    let { closeFullScreen, BackHandle, Orientation } = this.props;
+    let { closeFullScreen, BackHandle/* , Orientation */ } = this.props;
     this.setState({ isFull: false, currentVideoAspectRatio: deviceWidth + ":" + this.initialHeight, });
     BackHandle && BackHandle.removeBackFunction(_fullKey);
-    Orientation && Orientation.lockToPortrait();
+    // Orientation && Orientation.lockToPortrait();
     StatusBar.setHidden(false);
     //StatusBar.setTranslucent(false);
     closeFullScreen && closeFullScreen();
   };
 
   _toFullScreen = () => {
-    let { startFullScreen, BackHandle, Orientation } = this.props;
+    let { startFullScreen, BackHandle/* , Orientation */ } = this.props;
     //StatusBar.setTranslucent(true);
     this.setState({ isFull: true, currentVideoAspectRatio: deviceHeight + ":" + deviceWidth,});
     StatusBar.setHidden(true);
     BackHandle && BackHandle.addBackFunction(_fullKey, this._closeFullScreen);
     startFullScreen && startFullScreen();
-    Orientation && Orientation.lockToLandscape && Orientation.lockToLandscape();
+    // Orientation && Orientation.lockToLandscape && Orientation.lockToLandscape();
   };
 
   _onLayout = (e)=>{
@@ -210,7 +210,7 @@ export default class CommonVideo extends Component {
         style={[isFull ? styles.container : { height: 200, backgroundColor: '#000' }, style]}>
         {showTop && <View style={styles.topView}>
           <View style={styles.backBtn}>
-            {showBack && <TouchableOpacity
+            {/* showBack && <TouchableOpacity
               onPress={()=>{
                 if(isFull){
                   closeFullScreen && closeFullScreen();
@@ -222,7 +222,7 @@ export default class CommonVideo extends Component {
               activeOpacity={0.8}>
               <Icon name={'chevron-left'} size={30} color="#fff"/>
             </TouchableOpacity>
-            }
+             */}
             <View style={{justifyContent:'center',flex:1, marginRight: 10}}>
               {showTitle &&
               <Text style={{color:'#fff', fontSize: 16}} numberOfLines={1}>{title}</Text>
