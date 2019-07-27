@@ -1,6 +1,8 @@
 
 
-**NB**: this is a fork of [yazmani/react-native-vlcplayer-wrap](http://npm.taobao.org/package/react-native-vlcplayer-wrap)
+**NB**: this is **limited** a fork of [yazmani/react-native-vlcplayer-wrap](http://npm.taobao.org/package/react-native-vlcplayer-wrap)
+
+No ads & controls functionalities.
 
 
 
