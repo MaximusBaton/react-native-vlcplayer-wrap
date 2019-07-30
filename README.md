@@ -103,7 +103,6 @@ step 6:
    * CoreAudio.framework
    * AVFoundation.framework
    * MediaPlayer.framework
-   * libstdc++.6.0.9.tbd
    * libiconv.2.tbd
    * libc++.1.tbd
    * libz.1.tbd
