@@ -10,7 +10,10 @@ No ads & controls functionalities.
 # react-native-vlcplayer-wrap
 
 A `<VLCPlayer>` component for react-native
-This project refers to [react-native-video] (https://github.com/react-native-community/react-native-video).
+
+Mostly, a fork of [react-native-yz-vlcplayer](https://github.com/xuyuanzhou/react-native-yz-vlcplayer)
+
+This project refers to [react-native-video](https://github.com/react-native-community/react-native-video).
 [react-native-vlcplayer](https://github.com/xiongchuan86/react-native-vlcplayer),
 [react-native-vlc-player](https://github.com/ghondar/react-native-vlc-player),
 [react-native-vlc-yz-player](https://github.com/xuyuanzhou/react-native-vlcplayer-wrap)
@@ -107,6 +110,7 @@ step 6:
    * libc++.1.tbd
    * libz.1.tbd
    * libbz2.1.0.tbd
+   * ~~libstdc++.6.0.9.tbd~~ (see "Xcode10+ Some problems[1]")
 
 step 7:
 
@@ -121,19 +125,6 @@ step 8:
 
   set project deployment target  `9.3`
 
-
-
-## other react-native plugins
-
-   1. npm install react-native-orientation --save
-
-      react-native link react-native-orientation
-
-   2. npm install react-native-slider --save
-
-   3. npm install react-native-vector-icons --save
-
-      react-native link react-native-vector-icons
 
 
 ## Static Methods
@@ -357,15 +348,7 @@ Rtsp://184.72.239.149/vod/mp4://BigBuckBunny_175k.mov
 
 ````
    (1)
-      1. npm install react-native-orientation --save
-
-         react-native link react-native-orientation
-
-      2. npm install react-native-slider --save
-
-      3. npm install react-native-vector-icons --save
-
-         react-native link react-native-vector-icons
+      :)
 
    (2)
 
