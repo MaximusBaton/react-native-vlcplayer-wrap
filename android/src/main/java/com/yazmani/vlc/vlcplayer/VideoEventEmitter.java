@@ -1,6 +1,6 @@
 package com.yazmani.vlc.vlcplayer;
 
-import android.support.annotation.StringDef;
+import androidx.annotation.StringDef;
 import android.util.Log;
 import android.view.View;
 

@@ -27,10 +27,10 @@ import org.videolan.libvlc.IVLCVout;
 import org.videolan.libvlc.LibVLC;
 import org.videolan.libvlc.Media;
 import org.videolan.libvlc.MediaPlayer;
-import org.videolan.vlc.RecordEvent;
-import org.videolan.vlc.util.LogUtils;
-import org.videolan.vlc.util.VLCInstance;
-import org.videolan.vlc.util.VLCOptions;
+import com.vlc.lib.RecordEvent;
+import com.vlc.lib.listener.util.LogUtils;
+import com.vlc.lib.listener.util.VLCInstance;
+import com.vlc.lib.listener.util.VLCOptions;
 import java.util.ArrayList;
 
 @SuppressLint("ViewConstructor")
